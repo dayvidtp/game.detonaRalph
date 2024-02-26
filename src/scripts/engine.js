@@ -28,6 +28,12 @@ function countDown() {
     }
 }
 
+function playSound() {
+    let audio = new Audio("./src/audios/hit.m4a");
+    audio.volume = 0.2;
+    audio.play();
+}
+
 function randomSquare() {
     state.view.squares.forEach((square) => {
         square.classList.remove("enemy");
@@ -46,6 +52,7 @@ function addListenerHitBox() {
                 state.values.result++;
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
+                playSound();
             }
         });
     });
